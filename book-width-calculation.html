@@ -26,6 +26,8 @@ function openTwoSheets () {
   /* 移到指定座標 */
   if (w1) w1.moveTo(0, TOP_Y);
   if (w2) w2.moveTo(0, BOTTOM_Y);
+// 若想讓這個中介頁自動關閉（可選）
+      setTimeout(()=>window.close(), 200);
 }
 
 /* onload 直接執行；若被瀏覽器擋彈窗，就改成按鈕 click */
