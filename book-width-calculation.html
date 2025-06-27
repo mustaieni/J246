@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8" />
+<title>1600×1200 螢幕：上下並列兩張 Sheet</title>
+<style>
+  body{font-family:sans-serif;text-align:center;padding:80px}
+</style>
+<script>
+/* ① ② ↙︎ 改成自己的試算表網址 */
+const topURL    = 'https://docs.google.com/spreadsheets/d/1XQmp__ZL_GDuzjGHGD2_hFQubXiMLQiI/edit?usp=drive_link&ouid=113818867946133100869&rtpof=true&sd=true';
+const bottomURL = 'https://docs.google.com/spreadsheets/d/1WjHCuetUUu86FsixgWjyWmAA5-o-5gqZ/edit?usp=drive_link&ouid=113818867946133100869&rtpof=true&sd=true';
+
+/* 固定尺寸：1600×1200 → 上下各 600 px */
+const WIN_W   = 1600;   // 視窗寬
+const WIN_H   = 600;    // 單一視窗高
+const TOP_Y   =   0;    // 第一個視窗 Y 座標
+const BOTTOM_Y= 600;    // 第二個視窗 Y 座標
+
+function openTwoSheets () {
+  /* 先開視窗，feature 字串只放 size，用 moveTo 來排位置 */
+  const feat = `width=${WIN_W},height=${WIN_H}`;
+  const w1 = window.open(topURL   , '_blank', feat);
+  const w2 = window.open(bottomURL, '_blank', feat);
+
+  /* 移到指定座標 */
+  if (w1) w1.moveTo(0, TOP_Y);
+  if (w2) w2.moveTo(0, BOTTOM_Y);
+}
+
+/* onload 直接執行；若被瀏覽器擋彈窗，就改成按鈕 click */
+window.onload = openTwoSheets;
+</script>
+</head>
+<body>
+<h2>正在開啟兩個視窗，請稍候…</h2>
+</body>
+</html>
