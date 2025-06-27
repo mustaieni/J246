@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8">
+<title>左右並列開兩個視窗</title>
+<style>
+  body{font-family:sans-serif;text-align:center;padding:80px}
+</style>
+<script>
+/* ★★★ 改成自己的網址 ★★★ */
+const leftURL  = ' https://vip.104.com.tw/apply/ApplyDetail?jobno=12961631&ec=4&isToday=0';   // 左邊：網頁
+const rightURL = ' https://docs.google.com/document/d/1TQn9OcZLYh_g7RF1HYfsZHgfzeuR5KPM/edit?usp=drive_link&ouid=113818867946133100869&rtpof=true&sd=true';                          // 右邊：txt 或 Word viewer
+
+function openTwoSideBySide(){
+  /* 以 1600×1200 螢幕為例，左右各 800 × 1200 */
+  const WIN_W = 800, WIN_H = 1200;
+  const feat = `width=${WIN_W},height=${WIN_H}`;
+
+  const wLeft  = window.open(leftURL , '_blank', feat);   // 左視窗
+  const wRight = window.open(rightURL, '_blank', feat);   // 右視窗
+
+  if (wLeft)  wLeft.moveTo(0      , 0);
+  if (wRight) wRight.moveTo(WIN_W , 0);
+
+      // 若想讓這個中介頁自動關閉（可選）
+      setTimeout(()=>window.close(), 200);
+    }
+
+window.onload = openTwoSideBySide;   // 或改成按鈕 click
+</script>
+</head>
+<body>
+<h2>正在開啟兩個視窗，請稍候…</h2>
+</body>
+</html>
