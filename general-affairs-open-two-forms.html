@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>一鍵開啟 Google Drive 雙視窗</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 60px;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 8px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3367d6;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>一鍵開啟兩個 Google Drive 頁面</h1>
+  <p>點擊下方按鈕，會自動左右開啟兩個不同的資料夾</p>
+
+  <button onclick="openTwoWindows()">開啟左右視窗</button>
+
+  <script>
+    function openTwoWindows() {
+      const leftURL = "https://drive.google.com/drive/folders/1g9-SfQZ9ZuPb1JG4j5SxXZqDdpMXoHhd"; // 左側資料夾
+      const rightURL = "https://drive.google.com/drive/folders/1x8035ADzJMcFKO6vW0WSutDqAuNVWu9L"; // 右側資料夾
+
+      // 建議視窗寬度為螢幕一半（根據螢幕可調整）
+      window.open(leftURL, "_blank", "width=960,height=1080,left=0,top=0");
+      window.open(rightURL, "_blank", "width=960,height=1080,left=960,top=0");
+    }
+  </script>
+
+</body>
+</html>
