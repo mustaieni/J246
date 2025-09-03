@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>正在開啟兩個 Google Drive 視窗…</title>
+  <style>
+    body{font-family:sans-serif;text-align:center;padding:80px}
+    button{
+      padding: 14px 28px;
+      font-size: 16px;
+      border-radius: 8px;
+      background-color: #4285F4;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover{
+      background-color: #3367d6;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="msg">請點擊下方按鈕以開啟 Google 文件…</h2>
+  <p>或點擊上方網址列，並點選左側被阻擋的彈出式視窗圖示</p>
+  <button onclick="openTwoWindows()">點擊在此開啟</button>
+
+  <script>
+    // ★★★ 依需求修改兩個資料夾網址 ★★★
+    const leftURL  = "https://drive.google.com/drive/folders/1g9-SfQZ9ZuPb1JG4j5SxXZqDdpMXoHhd"; // 左側資料夾
+    const rightURL = "https://drive.google.com/drive/folders/1x8035ADzJMcFKO6vW0WSutDqAuNVWu9L"; // 右側資料夾
+
+    function openTwoWindows(){
+      const w1 = window.open(leftURL , "_blank", "width=960,height=1000,left=0,top=0");
+      const w2 = window.open(rightURL, "_blank", "width=960,height=1000,left=960,top=0");
+
+      // 彈窗被擋時的提醒
+      if(!w1 || !w2){
+        document.getElementById("msg").innerText = "❌ 需要您允許彈出式視窗，然後重新點擊此按鈕。";
+        return;
+      }
+
+      // 若想讓這個中介頁自動關閉（可選）
+      setTimeout(()=>window.close(), 200);
+    }
+  </script>
+</body>
+</html>
