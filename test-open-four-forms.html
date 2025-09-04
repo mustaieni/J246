@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>正在開啟四個 Google Drive 視窗…</title>
+  <style>
+    body{font-family:sans-serif;text-align:center;padding:80px}
+  </style>
+</head>
+<body>
+  <h2 id="msg">正在開啟視窗，請稍候…</h2>
+
+  <script>
+    // ★★★ 依需求修改四個資料夾網址 ★★★
+    const url1 = "https://drive.google.com/drive/folders/1ItM_nzFYhuMgUTLXSpOddoFEptnVgv6F"; // 左上角的網址
+    const url2 = "https://drive.google.com/drive/folders/1ItM_nzFYhuMgUTLXSpOddoFEptnVgv6F"; // 右上角的網址
+    const url3 = "https://drive.google.com/drive/folders/1ItM_nzFYhuMgUTLXSpOddoFEptnVgv6F"; // 左下角的網址
+    const url4 = "https://drive.google.com/drive/folders/1ItM_nzFYhuMgUTLXSpOddoFEptnVgv6F"; // 右下角的網址
+
+    function openFourWindows(){
+      // 自動計算每個視窗的寬度與高度 (螢幕的一半)
+      const winWidth = window.screen.width / 2;
+      const winHeight = window.screen.height / 2;
+
+      // 設定四個視窗的位置與大小
+      const w1 = window.open(url1, "_blank", `width=${winWidth},height=${winHeight},left=0,top=0`);
+      const w2 = window.open(url2, "_blank", `width=${winWidth},height=${winHeight},left=${winWidth},top=0`);
+      const w3 = window.open(url3, "_blank", `width=${winWidth},height=${winHeight},left=0,top=${winHeight}`);
+      const w4 = window.open(url4, "_blank", `width=${winWidth},height=${winHeight},left=${winWidth},top=${winHeight}`);
+
+      // 彈窗被擋時的提醒 (檢查所有四個視窗)
+      if(!w1 || !w2 || !w3 || !w4){
+        document.getElementById("msg").innerText = "❌ 需要您允許彈出式視窗，然後重新整理頁面。";
+        return;
+      }
+
+      // 若想讓這個中介頁自動關閉（可選）
+      setTimeout(()=>window.close(), 200);
+    }
+
+    // 讓 openFourWindows 於載入後立刻執行
+    window.onload = openFourWindows;
+  </script>
+</body>
+</html>
