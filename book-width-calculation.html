@@ -11,13 +11,13 @@
 const topURL = 'https://sites.google.com/hanlin.com.tw/spine/%E9%A6%96%E9%A0%81';
 const bottomURL = 'https://docs.google.com/spreadsheets/d/1WjHCuetUUu86FsixgWjyWmAA5-o-5gqZ/edit?usp=drive_link&ouid=113818867946133100869&rtpof=true&sd=true';
 
-/* 固定尺寸：1600×1200 → 上下各 600 px */
-const WIN_W = 800;   // 單一視窗寬
-const WIN_H = 600;   // 單一視窗高
+/* 固定尺寸：1600×1200 → 下半部左右各 800×600 */
+const WIN_W = 800;      // 單一視窗寬
+const WIN_H = 600;      // 單一視窗高
 
-const BOTTOM_Y = 600; // 兩個視窗都放在下半部
-const LEFT_X = 0;     // 第一個視窗靠左
-const RIGHT_X = 800;  // 第二個視窗靠右
+const LEFT_X = 0;       // 第一個視窗 X 座標：左側
+const RIGHT_X = 800;    // 第二個視窗 X 座標：右側
+const BOTTOM_Y = 600;   // 兩個視窗共同的 Y 座標：下半部
 
 function openTwoSheets () {
   /* 先開視窗，feature 字串只放 size，用 moveTo 來排位置 */
