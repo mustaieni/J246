@@ -14,8 +14,10 @@ const bottomURL = 'https://docs.google.com/spreadsheets/d/1WjHCuetUUu86FsixgWjyW
 /* 固定尺寸：1600×1200 → 上下各 600 px */
 const WIN_W   = 1000;   // 視窗寬
 const WIN_H   = 600;    // 單一視窗高
-const TOP_X   =   0;    // 第一個視窗 X 座標
-const BOTTOM_X= 1000;    // 第二個視窗 X 座標
+  
+const WIN_Y = 600;     // 兩個視窗都置於下方
+const LEFT_X = 0;      // 第一個視窗放左邊
+const RIGHT_X = 1000;  // 第二個視窗放右邊
 
 function openTwoSheets () {
   /* 先開視窗，feature 字串只放 size，用 moveTo 來排位置 */
