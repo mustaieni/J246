@@ -12,18 +12,21 @@ const topURL = 'https://docs.google.com/spreadsheets/d/1WjHCuetUUu86FsixgWjyWmAA
 const bottomURL = 'https://sites.google.com/hanlin.com.tw/spine/%E9%A6%96%E9%A0%81';
 
 /* 固定尺寸：1600×1200 → 下半部左右各 800×600 */
-const WIN_W = 800;      // 單一視窗寬
-const WIN_H = 600;      // 單一視窗高
+const LEFT_W = 960;     // 左邊視窗寬度
+const RIGHT_W = 800;    // 右邊視窗寬度
+const WIN_H = 600;      // 兩個視窗高度
 
-const LEFT_X = 0;       // 第一個視窗 X 座標：左側
-const RIGHT_X = 800;    // 第二個視窗 X 座標：右側
-const BOTTOM_Y = 600;   // 兩個視窗共同的 Y 座標：下半部
+const LEFT_X = 0;       // 左邊視窗從最左側開始
+const RIGHT_X = 960;    // 右邊視窗接在左邊視窗後面
+const BOTTOM_Y = 600;   // 兩個視窗都放在下方
 
 function openTwoSheets () {
   /* 先開視窗，feature 字串只放 size，用 moveTo 來排位置 */
-  const feat = `width=${WIN_W},height=${WIN_H}`;
-  const w1 = window.open(topURL   , '_blank', feat);
-  const w2 = window.open(bottomURL, '_blank', feat);
+const leftFeat = `width=${LEFT_W},height=${WIN_H}`;
+const rightFeat = `width=${RIGHT_W},height=${WIN_H}`;
+
+const w1 = window.open(topURL, '_blank', leftFeat);
+const w2 = window.open(bottomURL, '_blank', rightFeat);
 
   /* 移到指定座標 */
 if (w1) w1.moveTo(LEFT_X, BOTTOM_Y);
